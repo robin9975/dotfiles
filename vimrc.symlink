@@ -1,0 +1,12 @@
+" Tab control
+set tabstop=4 
+set expandtab 
+set shiftwidth=4 
+set autoindent 
+set smartindent
+
+" Numbering
+set relativenumber ruler
+
+set autoread
+set history=1000
