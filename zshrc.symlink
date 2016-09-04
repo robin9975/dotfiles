@@ -21,7 +21,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower laravel5 rails composer gem jsontools npm web-search)
+plugins=(git bower laravel5 rails composer gem jsontools npm web-search tmux)
 
 # User configuration
 
@@ -51,6 +51,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias biggest_files="du -BM -d1 | sort -nr | head -n 10"
 
 # add paths for ruby
 export PATH="$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin"
