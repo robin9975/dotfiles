@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+#
+# Small script to print time for pomodoro
+# Calculates time based on the latest modify
+# time of file '/tmp/pomodoro'
+# 
+# In the terminal execute:
+#   
+#   to start the timer:
+#       touch /tmp/pomodoro 
+#   
+#   to stop the timer:
+#       rm /tmp/pomodoro
+# 
+# Run this script to print out the time until
+# end of your pomodoro
+# 
+# of course, you can couple these nicely with
+# either aliases, an windowbar, or shortcuts
+# I use this in combination with i3
+
+import os, time
+import subprocess
+import math
+
+# global settings
+filename = '/tmp/pomodoro'
+timer_time = 25 * 60 
+
+# try to get the start time, 
+# exit cleanly if it doesn't exist
+try:
+    start_time = os.path.getctime(filename)
+except FileNotFoundError:
+    #print('file not found..')
+    exit()
+
+# calculate time to go
+time_elapsed = time.time() - start_time
+time_to_go = timer_time - time_elapsed
+
+# remove file and notify if time has elapsed
+if time_to_go <= 0:
+    os.remove(filename)
+    time_to_go = 0
+    subprocess.call(['notify-send', 'Pomodoro time is up!','Take a break :)'])
+
+# minutes + second calculation for display
+minutes_to_go = time_to_go // 60
+seconds_to_go = time_to_go - minutes_to_go * 60
+
+# actually display the time to go
+print("%02d:%02d" % (math.floor(minutes_to_go), seconds_to_go))
