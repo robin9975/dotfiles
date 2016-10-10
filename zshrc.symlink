@@ -52,6 +52,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias biggest_files="du -BM -d1 | sort -nr | head -n 10"
+alias tmux="tmux -2"
 
 # add paths for ruby
 export PATH="$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin"

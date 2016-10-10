@@ -1,3 +1,6 @@
+" Vundle
+source ~/.dotfiles/vim/.vimrc_vundle
+
 " Tab control
 set tabstop=4 
 set expandtab 
@@ -10,3 +13,19 @@ set relativenumber ruler
 
 set autoread
 set history=1000
+
+let g:tex_flavor = 'tex'
+
+" Autocomplete
+
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_filetype_blacklist = {}
+
+" UltiSnipsSettings
+"
+let g:UltiSnipsListSnippets = "<c-tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+
+let g:UltiSnipsEditSplit = "vertical"
