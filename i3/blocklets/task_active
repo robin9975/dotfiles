@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+from subprocess import Popen, PIPE
+import json
+
+def get_tasks():
+    proc = Popen(['task', 'status:pending', 'start.before:now', 'export'],
+            stdout=PIPE)
+    output_bytes, err = proc.communicate()
+    json_string = output_bytes.decode('utf-8')
+    return json.loads(json_string)
+
+tasks = get_tasks()
+if len(tasks) == 0:
+    exit()
+
+if len(tasks) > 1:
+    print('> 2!')
+
+task = tasks[0]
+print('{}: {} ({})'.format(task['id'], task['description'], task['project']))

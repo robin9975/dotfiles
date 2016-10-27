@@ -1,12 +1,15 @@
 " Vundle
 source ~/.dotfiles/vim/.vimrc_vundle
 
+syntax enable 
+
 " Tab control
 set tabstop=4 
 set expandtab 
 set shiftwidth=4 
 set autoindent 
 set smartindent
+set smarttab
 
 " Numbering
 set relativenumber ruler

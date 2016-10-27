@@ -2,6 +2,8 @@
 
 bind r source-file ~/.tmux.conf
 
+bind-key , command-prompt "rename-window '%%'"
+
 ##########################
 # Colors
 ###########################
