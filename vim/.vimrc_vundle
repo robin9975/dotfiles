@@ -16,6 +16,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 
 Plugin 'lervag/vimtex'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
