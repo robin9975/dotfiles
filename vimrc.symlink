@@ -14,6 +14,8 @@ set relativenumber ruler
 set autoread
 set history=1000
 
+syntax on
+
 let g:tex_flavor = 'tex'
 
 " Autocomplete
