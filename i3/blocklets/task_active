@@ -18,4 +18,9 @@ if len(tasks) > 1:
     print('> 2!')
 
 task = tasks[0]
-print('{}: {} ({})'.format(task['id'], task['description'], task['project']))
+
+output_string = '{}: {}'.format(task['id'], task['description'])
+if ('project' in task.keys()):
+    output_string += ' ({})'.format(task['project'])
+
+print(output_string)

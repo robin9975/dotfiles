@@ -15,6 +15,17 @@ set $mod Mod4
 set $PRIMARY VGA-1 # main monitor
 set $SECONDARY HDMI-1
 
+# fancy workspace names, all end with ", but this cannot be seen
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -110,43 +121,41 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspace monitor settings
-workspace 1 output $PRIMARY
-workspace 2 output $SECONDARY
-workspace 3 output $PRIMARY
-workspace 4 output $SECONDARY
-workspace 5 output $PRIMARY
-workspace 6 output $SECONDARY
-workspace 7 output $PRIMARY
-workspace 8 output $SECONDARY
-workspace 9 output $PRIMARY
-workspace 10 output $SECONDARY
+workspace $ws1 output $PRIMARY
+workspace $ws2 output $SECONDARY
+workspace $ws3 output $PRIMARY
+workspace $ws4 output $SECONDARY
+workspace $ws5 output $PRIMARY
+workspace $ws6 output $SECONDARY
+workspace $ws7 output $PRIMARY
+workspace $ws8 output $SECONDARY
+workspace $ws9 output $PRIMARY
+workspace $ws10 output $SECONDARY
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
-# start a lockscript (which launches i3lock)
-bindsym $mod+Shift+x exec .dotfiles/custom/lock.sh
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -185,7 +194,21 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+
+set $system_mode "system: (s)hutdown, (r)eboot, (l)ock"
+mode $system_mode {
+
+    # s shuts down the system 
+    bindsym s exec dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
+    # start a lockscript (which launches i3lock)
+    bindsym l exec .dotfiles/custom/lock.sh; mode "default"
+    bindsym r exec dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
+
+    bindsym Escape mode "default"
+}
+
 bindsym $mod+r mode "resize"
+bindsym $mod+Escape mode $system_mode
 
 # Inserting primary variable does not work for some reason..
 exec_always --no-startup-id "xrandr --output VGA-1 --right-of $SECONDARY"
