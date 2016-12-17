@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 
+Plugin 'rust-lang/rust.vim'
 Plugin 'lervag/vimtex'
 Plugin 'posva/vim-vue'
 
