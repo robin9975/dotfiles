@@ -207,7 +207,19 @@ mode $system_mode {
     bindsym Escape mode "default"
 }
 
+set $brightness_mode "brightness mode"
+mode $brightness_mode {
+    bindsym 5 exec xrandr --output HDMI-1 --brightness .5 --output VGA-1 --brightness .5
+    bindsym 8 exec xrandr --output HDMI-1 --brightness .8 --output VGA-1 --brightness .8
+    bindsym 9 exec xrandr --output HDMI-1 --brightness .9 --output VGA-1 --brightness .9
+    bindsym 0 exec xrandr --output HDMI-1 --brightness 1 --output VGA-1 --brightness 1 
+
+    bindsym Escape mode "default"
+}
+
+
 bindsym $mod+r mode "resize"
+bindsym $mod+m mode $brightness_mode
 bindsym $mod+Escape mode $system_mode
 
 # Inserting primary variable does not work for some reason..
