@@ -35,3 +35,5 @@ let g:UltiSnipsEditSplit = "vertical"
 
 " Custom mappings
 nmap <silent> <C-n> :NERDTreeToggle<CR>
+
+au BufNewFile,BufRead *.rs set filetype=rust
