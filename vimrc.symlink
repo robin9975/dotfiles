@@ -57,6 +57,6 @@ let NERDTreeIgnore = ['\.pyc$', '\~$', '__pycache__$[[dir]]']
 " Custom mappings
 nmap <silent> <C-n> :NERDTree<CR>
 
-
-" Custom commands for latex file
-autocmd BufNewFile,BufRead *.tex set linebreak spell spelllang=en
+" Autocommands
+au BufNewFile,BufRead *.tex set linebreak spell spelllang=en
+au BufNewFile,BufRead *.rs set filetype=rust
