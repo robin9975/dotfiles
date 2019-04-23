@@ -54,6 +54,18 @@ source $ZSH/oh-my-zsh.sh
 alias biggest_files="du -BM -d1 | sort -nr | head -n 10"
 alias tmux="tmux -2"
 
+alias composer="php /usr/bin/composer.phar"
+
 # add paths for ruby
 # export PATH="$PATH:$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin"
 # eval "$(rbenv init -)"
+
+# Rust path (from rustup)#
+if [ -d "$HOME/.cargo/bin" ] ; then
+    export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
+alias sqlite3='/usr/bin/sqlite3'
+
+export PATH=/home/robin/miniconda3/bin:$PATH
+export PATH=/usr/lib/go-1.9/bin:$PATH

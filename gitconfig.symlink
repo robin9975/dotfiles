@@ -3,3 +3,7 @@
 	email = robin9975@gmail.com
 [push]
 	default = simple
+[core]
+	excludesfile = /home/robin/.gitignore_global
+[credential]
+	helper = cache
