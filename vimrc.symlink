@@ -40,15 +40,19 @@ let g:ctrlp_max_files = 0
 
 " Syntastic settings
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:ale_fixers = {'javascript': ['eslint']}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_rust_checkers = ['cargo']
-
+let g:syntastic_rust_checkers = []
+let g:syntastic_javascript_checkers = []
+let g:syntastic_javascript_eslint_exe = ['eslint']
 
 
 " Ignore stupid python files in NERDTree
