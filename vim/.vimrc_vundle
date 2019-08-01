@@ -15,8 +15,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 
+Plugin 'airblade/vim-gitgutter'
+
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'nvie/vim-flake8'
 
 Plugin 'rust-lang/rust.vim'
