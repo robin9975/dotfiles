@@ -41,6 +41,7 @@ let g:ctrlp_max_files = 0
 " Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%*
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 let g:ale_fixers = {'javascript': ['eslint']}
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
