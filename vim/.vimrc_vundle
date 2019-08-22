@@ -26,6 +26,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'lervag/vimtex'
 Plugin 'posva/vim-vue'
 
+Plugin 'vimwiki/vimwiki'
+
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
