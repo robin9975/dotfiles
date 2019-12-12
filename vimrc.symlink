@@ -67,6 +67,9 @@ let g:syntastic_check_on_wq = 0
 " Ignore stupid python files in NERDTree
 let NERDTreeIgnore = ['\.pyc$', '\~$', '__pycache__$[[dir]]']
 
+" Vimwiki configuration for Notebook
+let g:vimwiki_list = [ {'path': '~/notebook', 'syntax': 'markdown', 'ext': '.md'} ]
+
 " Custom mappings
 nmap <silent> <C-n> :NERDTree<CR>
 
