@@ -69,4 +69,12 @@ au BufNewFile,BufRead *.rs set filetype=rust
 
 au BufWritePre * %s/\s\+$//e
 
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 
+let g:task_log_max = '1000'

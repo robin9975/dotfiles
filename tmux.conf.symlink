@@ -17,6 +17,8 @@ set -g status-bg colour0
 set -g status-fg white
 set -g default-terminal "screen-256color"
 
+set-window-option -g xterm-keys on
+
 setw -g mode-keys vi
 set-option -g allow-rename off
 

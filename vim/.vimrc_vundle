@@ -27,6 +27,7 @@ Plugin 'lervag/vimtex'
 Plugin 'posva/vim-vue'
 
 Plugin 'vimwiki/vimwiki'
+Plugin 'xarthurx/taskwarrior.vim'
 
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
