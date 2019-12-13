@@ -69,6 +69,9 @@ let NERDTreeIgnore = ['\.pyc$', '\~$', '__pycache__$[[dir]]']
 
 " Vimwiki configuration for Notebook
 let g:vimwiki_list = [ {'path': '~/notebook', 'syntax': 'markdown', 'ext': '.md'} ]
+" By default, vimwiki hijacks all md files, setting the wrong filetype
+" This makes Ultisnips not being able to do its magic
+let g:vimwiki_global_ext = 0
 
 " Custom mappings
 nmap <silent> <C-n> :NERDTree<CR>
