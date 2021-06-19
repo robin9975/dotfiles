@@ -25,8 +25,18 @@ let g:tex_flavor = 'tex'
 " Autocomplete
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_rust_src_path = '/home/robin/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_filetype_blacklist = {}
+let g:ycm_lanaguage_server = []
+"let g:ycm_lanaguage_server = [
+            "\{
+            "\'name': 'rust',
+            "\'cmdline': ['rust-analyzer'],
+            "\'filetypes': ['rust'],
+            "\'project_root_files': ['Cargo.toml']
+            "\}
+            "\]
+
+
 
 " UltiSnipsSettings
 let g:UltiSnipsListSnippets = "<c-tab>"
@@ -37,6 +47,7 @@ let g:UltiSnipsEditSplit = "vertical"
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_max_files = 0
+
 if executable('rg')
     set grepprg=rg\ --color=never
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
@@ -49,10 +60,16 @@ endif
 set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 set statusline+=%#warningmsg#
 set statusline+=%*
+
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
-let g:ale_fixers = {'javascript': ['eslint']}
-let g:ale_linters = {'python': ['flake8', 'pylint']}
+let g:ale_fixers = {'javascript': ['eslint'], 'rust': ['analyzer']}
+let g:ale_linters = {'python': ['flake8', 'pylint'], 'rust': ['analyzer'] }
+
+let g:ale_rust_analyzer_config = {
+    \"rust-analyzer.checkOnSave.command": "clippy"
+\}
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -91,3 +108,5 @@ if &term =~ '^screen'
 endif
 
 let g:task_log_max = '1000'
+
+let R_assign = 0

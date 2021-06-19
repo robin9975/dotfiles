@@ -35,6 +35,9 @@ Plugin 'leafgarland/typescript-vim'
 
 Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
+Plugin 'pest-parser/pest.vim'
+
+Plugin 'jamespeapen/Nvim-R'
 
 call vundle#end()
 
