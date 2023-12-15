@@ -20,13 +20,22 @@ set signcolumn=yes
 
 call plug#begin()
 
-Plug 'https://github.com/ctrlpvim/ctrlp.vim' " Ctrl-P
+" Plug 'https://github.com/ctrlpvim/ctrlp.vim' " Ctrl-P
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' } " File finder / etc.
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'karb94/neoscroll.nvim' "Smooth scroll
+
 Plug 'https://github.com/preservim/nerdtree' " NerdTree
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'ayu-theme/ayu-vim'
+
 
 set encoding=UTF-8
 
@@ -35,22 +44,27 @@ call plug#end()
 colorscheme ayu
 set termguicolors
 
+source ~/.dotfiles/nvim/neoscroll.lua
+source ~/.dotfiles/nvim/telescope.lua
+
+
 let g:coc_disable_startup_warning = 1
 
 
-let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_max_files = 0
+" let g:ctrlp_root_markers = ['.ctrlp']
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+" let g:ctrlp_max_files = 0
 
-if executable('rg')
-    set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-endif
+" if executable('rg')
+    " set grepprg=rg\ --color=never
+    " let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+" endif
 
+" set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
+" set statusline+=%#warningmsg#
+" set statusline+=%*
 
-set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
-set statusline+=%#warningmsg#
-set statusline+=%*
+set statusline="%t"
 
 "
 " Nerd
@@ -63,6 +77,8 @@ nmap <silent> <C-n> :NERDTreeToggle<CR>
 " Autocommands
 au BufNewFile,BufRead *.tex set linebreak spell spelllang=en
 au BufNewFile,BufRead *.rs set filetype=rust
+
+
 
 let b:coc_root_patterns = ['.git', '.env', 'package.json', 'tsconfig.json', 'jsconfig.json', 'vite.config.ts', 'vite.config.js', 'vue.config.js', 'nuxt.config.ts', 'Cargo.toml']
 
@@ -115,6 +131,16 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming
+nmap <leader>rn <Plug>(coc-rename)
+
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+
+" Run the Code Lens action on the current line
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
