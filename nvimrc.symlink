@@ -28,6 +28,8 @@ Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion, LSP related stuf
 
 Plug 'fannheyward/telescope-coc.nvim' " Use telescope to filter Coc results
 
+Plug 'github/copilot.vim' " Use telescope to filter Coc results
+
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'karb94/neoscroll.nvim' "Smooth scroll
