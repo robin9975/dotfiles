@@ -28,7 +28,7 @@ Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion, LSP related stuf
 
 Plug 'fannheyward/telescope-coc.nvim' " Use telescope to filter Coc results
 
-Plug 'github/copilot.vim' " Use telescope to filter Coc results
+Plug 'github/copilot.vim' " 
 
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -88,6 +88,7 @@ endif
 "
 " Coc configs, based on the example config in
 " https://github.com/neoclide/coc.nvim
+"
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable

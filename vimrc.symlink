@@ -1,6 +1,12 @@
 " Vundle
 source ~/.dotfiles/vim/.vimrc_vundle
 
+
+" To install the COC language servers
+" :CocInstall coc-rls
+" :CocInstall coc-pyright
+
+
 let python_highlight_all=1
 syntax on
 
@@ -13,7 +19,7 @@ set smartindent
 set smarttab
 
 " Numbering
-set relativenumber ruler
+set relativenumber ruler number
 
 set splitright
 
@@ -22,31 +28,13 @@ set history=1000
 
 let g:tex_flavor = 'tex'
 
-" Autocomplete
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_filetype_blacklist = {}
-let g:ycm_lanaguage_server = []
-"let g:ycm_lanaguage_server = [
-            "\{
-            "\'name': 'rust',
-            "\'cmdline': ['rust-analyzer'],
-            "\'filetypes': ['rust'],
-            "\'project_root_files': ['Cargo.toml']
-            "\}
-            "\]
-
-
-
-" UltiSnipsSettings
-let g:UltiSnipsListSnippets = "<c-tab>"
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsEditSplit = "vertical"
 
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_max_files = 0
+
+" Ignore stupid python files in NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\~$', '__pycache__$[[dir]]']
 
 if executable('rg')
     set grepprg=rg\ --color=never
@@ -61,28 +49,6 @@ set statusline="%f%m%r%h%w [%Y] [0x%02.2B]%< %F%=%4v,%4l %3p%% of %L"
 set statusline+=%#warningmsg#
 set statusline+=%*
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-
-let g:ale_fixers = {'javascript': ['eslint'], 'rust': ['analyzer']}
-let g:ale_linters = {'python': ['flake8', 'pylint'], 'rust': ['analyzer'] }
-
-let g:ale_rust_analyzer_config = {
-    \"rust-analyzer.checkOnSave.command": "clippy"
-\}
-
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-let g:syntastic_rust_checkers = []
-let g:syntastic_javascript_checkers = []
-let g:syntastic_javascript_eslint_exe = ['eslint']
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-" Ignore stupid python files in NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\~$', '__pycache__$[[dir]]']
 
 " Vimwiki configuration for Notebook
 let g:vimwiki_list = [ {'path': '~/notebook', 'syntax': 'markdown', 'ext': '.md'} ]

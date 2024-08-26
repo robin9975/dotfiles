@@ -30,6 +30,16 @@ You can symlink these using `ln -s [target] [link_name]`, so:
 - ln -s ~/.dotfiles/tmux.conf.symlink ~/tmux.conf
 
 
+## Neovim
+
+- ln -s ~/.config/nvim/init.vim ~/nvrimrc.symlink
+
+Run 'npm ci' for CoC
+- ~/.local/share/nvim/plugged/coc.nvim
+
+
+
+
 ## Vim
 
 In the vimrc several plugins are configured. You can use [Vundle](https://github.com/VundleVim/Vundle.vim) to manage these plugins. 

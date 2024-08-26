@@ -1,44 +1,35 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'kien/ctrlp.vim'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'w0rp/ale'
-Plugin 'nvie/vim-flake8'
+Plug 'vim-scripts/indentpython.vim'
 
-Plugin 'rust-lang/rust.vim'
-Plugin 'lervag/vimtex'
-Plugin 'posva/vim-vue'
+Plug 'rust-lang/rust.vim'
+Plug 'lervag/vimtex'
+Plug 'posva/vim-vue'
 
-Plugin 'vimwiki/vimwiki'
-Plugin 'xarthurx/taskwarrior.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'xarthurx/taskwarrior.vim'
 
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'leafgarland/typescript-vim'
+Plug 'Shougo/vimproc.vim'
 
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'pest-parser/pest.vim'
+Plug 'pest-parser/pest.vim'
+Plug 'tikhomirov/vim-glsl'
 
-Plugin 'jamespeapen/Nvim-R'
+Plug 'jamespeapen/Nvim-R'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
