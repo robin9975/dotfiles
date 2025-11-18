@@ -24,7 +24,9 @@ call plug#begin()
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' } " File finder / etc.
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion, LSP related stuffs
+Plug 'https://github.com/neoclide/coc.nvim', { 'branch': 'release' } "Auto Completion, LSP related stuffs
+
+Plug 'airblade/vim-gitgutter'  " Show git status updates in the gutter 
 
 Plug 'fannheyward/telescope-coc.nvim' " Use telescope to filter Coc results
 
@@ -72,7 +74,7 @@ au BufNewFile,BufRead *.rs set filetype=rust
 
 let b:coc_root_patterns = ['.git', '.env', 'package.json', 'tsconfig.json', 'jsconfig.json', 'vite.config.ts', 'vite.config.js', 'vue.config.js', 'nuxt.config.ts', 'Cargo.toml']
 
-let g:coc_global_extensions = [ 'coc-rust-analyzer', 'coc-python', 'coc-json', '@yaegassy/coc-volar', 'coc-tsserver', 'coc-css'  ]
+let g:coc_global_extensions = [ 'coc-rust-analyzer', 'coc-python', 'coc-json', '@yaegassy/coc-volar', 'coc-tsserver', 'coc-css', 'coc-go'  ]
 
 
 if &term =~ '^screen'

@@ -12,3 +12,4 @@ vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 local opts = {}
 opts['get_all'] = true
 vim.keymap.set('n', '<leader>d', function() return coc.diagnostics(opts) end, {} )
+vim.keymap.set('n', '<leader>s', function() return coc.workspace_symbols(opts) end, {} )
