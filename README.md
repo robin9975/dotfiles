@@ -37,7 +37,14 @@ You can symlink these using `ln -s [target] [link_name]`, so:
 Run 'npm ci' for CoC
 - ~/.local/share/nvim/plugged/coc.nvim
 
+## Claude
 
+First, install claude code using the instructions from their website. 
+
+Then, you can symlink the claude config file:
+- ln -s ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+- ln -s ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
+- ln -s ~/.dotfiles/claude/commands ~/.claude/commands
 
 
 ## Vim
